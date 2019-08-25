@@ -1,0 +1,42 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          <a class="navbar-brand" href="{{ url_for('main.home') }}">Strava TBD</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                {% if profile %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ profile.firstname }} {{profile.lastname }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li> <a href="#">{{ profile.athlete_type }}</a></li>
+                            <li><a href="#">{{ profile.city }}, {{ profile.state }}</a></li>
+                        </ul>
+                    </li>
+                    
+                    <div class="navbar-header" style='padding-right: 15px;'>
+                        <a class="navbar-brand" href="#"> 
+                            <div class="thumbnail">
+                                <img style="width: 124px; height: 95px;" src="{{ profile.profile_photo }}">
+                            </div>
+                        </a>
+                    </div>
+
+                {% endif %}
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

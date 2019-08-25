@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>
+        {% block title %}
+            Urban Disco
+        {% endblock %}
+    </title>
+
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css') }}"/>
+    {% endblock %}
+
+    {% block script %}
+        <script src="{{ url_for('static', filename='vendor/jquery/jquery-1.11.3.min.js') }}"></script> 
+        <script src="{{ url_for('static', filename='vendor/moment/moment.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap-3.3.6-dist/js/bootstrap-datetimepicker.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap-3.3.6-dist/js/bootstrap-datepicker.js') }}"></script>
+    {% endblock %}
+</head>
+
+<body style='padding-top: 65px'>
+    {% if profile %}
+        <div id="header">
+            {% block header %}
+                {% include 'navbar.html' %}
+            {% endblock %}
+        </div>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-fade" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <!-- <strong>Title</strong> --> {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">{% block footer %}{% endblock %}</div>
+</body>
+</html>

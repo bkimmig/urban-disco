@@ -1,0 +1,67 @@
+<div class="container-fluid">
+<div class='col-sm-6'>
+
+<form action="/get-activities/" method="post">
+
+    <div class="form-group">
+        <label for="activityType">Example select</label>
+        <select class="form-control" id="activityType" name='activityType'>
+            <option>Ride</option>
+            <option>Run</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <div class='input-group date' id='datepicker'>
+            <input type='text' class="form-control" name='datepicker'/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datepicker').datepicker();
+        });
+    </script>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <form action="/activity-range/{{ profile._id }}" method="post">
+        <input type="hidden" name="profile_id" value="{{ profile.id }}">
+        <input type="checkbox" name="activity_type" value="Ride"> Ride <br>
+        <input type="checkbox" name="activity_type" value="Run" checked="checked"> Run <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datepicker();
+            });
+        </script>
+    </div>
+</div> -->
