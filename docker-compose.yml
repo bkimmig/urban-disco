@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    image: vacasa/urban-disco:${TAG:-latest}
+    ports:
+      - 8888:8888
+    environment: &appenv
+    # you will need to override any confidential information in the
+    # docker-compose.override.yml - otherwise put environment vars here
+      DEBUG: 'True'
+      PORT: 8888
+      HOST: "0.0.0.0"
+    entrypoint:
+      - python
+      - run.py
+    volumes:
+      - type: bind
+        source: ./src/
+        target: /src/ 
