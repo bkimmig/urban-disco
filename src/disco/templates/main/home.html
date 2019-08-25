@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% if profile %}
+        <div class="container-fluid">
+          Hey, you are logged in..
+        </div>
+          <!-- {% include 'main/activity_range_select.html' %} -->
+
+    {% else %}
+        <div class="container-fluid">
+            <div style='text-align: center'>
+            {% include 'main/strava_login.html' %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
